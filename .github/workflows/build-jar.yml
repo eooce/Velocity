@@ -50,7 +50,7 @@ jobs:
         with:
           artifacts: "velocity.jar"
           tag: ${{ github.ref_name }}
-          name: "NanoLimbo ${{ github.ref_name }}"
+          name: "Velocity ${{ github.ref_name }}"
           token: ${{ secrets.GITHUB_TOKEN }}
           allowUpdates: true
           replacesArtifacts: true
